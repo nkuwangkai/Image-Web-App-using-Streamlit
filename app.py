@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
-import xgboost as xgb
-from bayes_opt import BayesianOptimization
+import xgboost
 from xgboost.sklearn import XGBClassifier
-import joblib
 import streamlit as st
 
 data3 = pd.read_csv(data3.csv)
