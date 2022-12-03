@@ -1,4 +1,2 @@
 xgboost
 streamlit
-joblib
-pickle
