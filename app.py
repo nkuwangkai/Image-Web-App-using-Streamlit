@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 import xgboost
 import sklearn
-from xgboost.sklearn import XGBClassifier
+from xgboost import XGBClassifier
 import streamlit as st
-import pandas as pd
 
 data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
 Xtrain = (data3.iloc[:,1:22]) 
