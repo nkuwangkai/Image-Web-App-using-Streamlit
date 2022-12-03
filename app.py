@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import xgboost
-from xgboost import XGBClassifier
+from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
 data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
