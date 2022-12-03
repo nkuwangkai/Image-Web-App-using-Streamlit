@@ -3,9 +3,9 @@ import numpy as np
 import xgboost
 from xgboost.sklearn import XGBClassifier
 import streamlit as st
+import pandas as pd
 
-url = "https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/blob/main/data3.csv"
-data3 = pd.read_csv(url)
+data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
 Xtrain = (data3.iloc[:,1:22]) 
 Ytrain = (data3.iloc[:,0])
 
