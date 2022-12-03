@@ -9,8 +9,8 @@ import joblib
 import streamlit as st
 
 data3 = pd.read_csv(data3.csv)
-Xtrain = (data1.iloc[:,1:22]) 
-Ytrain = (data1.iloc[:,0])
+Xtrain = (data3.iloc[:,1:22]) 
+Ytrain = (data3.iloc[:,0])
 
 clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
