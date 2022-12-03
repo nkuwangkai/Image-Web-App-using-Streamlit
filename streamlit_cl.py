@@ -1,6 +1,3 @@
-"""Create an Image Classification Web App using PyTorch and Streamlit."""
-# import libraries
-
 import pandas as pd
 import numpy as np
 import joblib
