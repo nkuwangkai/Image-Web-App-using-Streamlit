@@ -1,7 +1,29 @@
 import pandas as pd
 import numpy as np
+import xgboost as xgb
+import sklearn
+from sklearn.utils import shuffle
+from bayes_opt import BayesianOptimization
+from xgboost.sklearn import XGBClassifier
 import joblib
 import streamlit as st
+
+data3 = pd.read_csv(data3.csv)
+Xtrain = (data1.iloc[:,1:22]) 
+Ytrain = (data1.iloc[:,0])
+
+clf = XGBClassifier(objective='binary:logistic',
+              booster='gbtree',
+              colsample_bytree=0.558759,
+              gamma=0.1477409,
+              learning_rate=0.08694605,
+              max_delta_step=8,
+              max_depth=3,
+              min_child_weight=37,
+              n_estimators=92,
+              subsample=0.6428299)
+
+clf.fit(Xtrain,Ytrain)
 
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
@@ -29,8 +51,6 @@ HepF = st.number_input("HepF (No=0,Yes=1)")
 
 # If button is pressed
 if st.button("Predict"):
-    # Unpickle classifier
-    clf = joblib.load("clf.pkl")
 
     # Store inputs into dataframe
     X = pd.DataFrame([[Age, Temperature, RespiratoryRate, HeartRate, SBP, AG, BUN, MCHC, MCV, RDW, WBC, Race,
