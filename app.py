@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import xgboost
-from xgboost.sklearn import XGBClassifier
+from xgboost import XGBClassifier
 import streamlit as st
 import pandas as pd
 
@@ -9,7 +9,8 @@ data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortal
 Xtrain = (data3.iloc[:,1:22]) 
 Ytrain = (data3.iloc[:,0])
 
-clf = XGBClassifier(
+clf = XGBClassifier(objective='binary:logistic',
+              booster='gbtree',
               colsample_bytree=0.558759,
               gamma=0.1477409,
               learning_rate=0.08694605,
