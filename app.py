@@ -9,8 +9,7 @@ data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortal
 Xtrain = (data3.iloc[:,1:22]) 
 Ytrain = (data3.iloc[:,0])
 
-clf = XGBClassifier(objective='binary:logistic',
-              booster='gbtree',
+clf = XGBClassifier(
               colsample_bytree=0.558759,
               gamma=0.1477409,
               learning_rate=0.08694605,
