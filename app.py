@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 import xgboost as xgb
-import sklearn
-from sklearn.utils import shuffle
 from bayes_opt import BayesianOptimization
 from xgboost.sklearn import XGBClassifier
 import joblib
