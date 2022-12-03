@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import xgboost
-import sklearn
+import scikit-learn
 from xgboost import XGBClassifier
 import streamlit as st
 import pandas as pd
