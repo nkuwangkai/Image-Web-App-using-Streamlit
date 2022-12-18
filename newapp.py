@@ -7,7 +7,7 @@ import streamlit as st
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
 
-Age = st.number_input("Age (years)") 
+Age = st.sidebar.slider(‘Age (years)’, 18, 100, 50)
 Temperature = st.number_input("Temperature (℃)")
 RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute)")
 HeartRate = st.number_input("HeartRate (beats per minute)")
