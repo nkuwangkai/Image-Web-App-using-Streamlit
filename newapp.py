@@ -41,10 +41,17 @@ if st.button("Predict"):
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
-    dtypes = {k: str for k in columns[:2]}
-    dtypes.update({columns[0,2,3,4,5,6,8]: long})
-    dtypes.update({k: category for k in columns[3:]})
-    X = X.astype(dtypes)
+    X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']] = X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']].astype(int16)
+    
+    X[Race].astypes(category)
+    X[Norepinephrine].astypes(category)
+    X[Dopamine].astypes(category)
+    X[Phenylephrine].astypes(category)
+    X[Vasopressin].astypes(category)
+    X[Vent].astypes(category)
+    X[Intubated].astypes(category)
+    X[MC].astypes(category)
+    X[HepF].astypes(category)
     
     Y = df[["label"]]
     
