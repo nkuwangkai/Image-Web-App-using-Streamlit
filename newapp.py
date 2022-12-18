@@ -5,22 +5,6 @@ from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
 df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data4.csv",thousands=',')
-X = df[["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV","RDW", "WBC", "Race",
-        "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC", "HepF"]]		
-Y = df[["label"]]
-
-clf = XGBClassifier(objective='binary:logistic',
-              booster='gbtree',
-              colsample_bytree=0.558759,
-              gamma=0.1477409,
-              learning_rate=0.08694605,
-              max_delta_step=8,
-              max_depth=3,
-              min_child_weight=37,
-              n_estimators=92,
-              subsample=0.6428299)
-
-clf.fit(X,Y)
 
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
@@ -50,14 +34,27 @@ HepF = st.selectbox("HepF (No=0,Yes=1)", ("0","1"))
 
 # If button is pressed
 if st.button("Predict"):
-
+    
     # Store inputs into dataframe
+    X = df[["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV","RDW", "WBC", "Race",
+        "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC", "HepF"]]		
+    Y = df[["label"]]
+    clf = XGBClassifier(objective='binary:logistic',
+              booster='gbtree',
+              colsample_bytree=0.558759,
+              gamma=0.1477409,
+              learning_rate=0.08694605,
+              max_delta_step=8,
+              max_depth=3,
+              min_child_weight=37,
+              n_estimators=92,
+              subsample=0.6428299)
+    
     X = pd.DataFrame([[Age, Temperature, RespiratoryRate, HeartRate, SBP, AG, BUN, MCHC, MCV, RDW, WBC, Race,
                        Norepinephrine, Dopamine, Phenylephrine, Vasopressin, Vent, Intubated, MC, HepF]],
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
-                              "Vent", "Intubated", "MC", "HepF"],
-                     enable _ categorial=TRUE)
+                              "Vent", "Intubated", "MC", "HepF"])
     X[Age].astypes(int)
     X[RespiratoryRate].astypes(int)
     X[HeartRate].astypes(int)
@@ -78,7 +75,9 @@ if st.button("Predict"):
     X = X.replace(["Yes", "No"], [1, 0])
     X = X.replace(["white", "black","others"], [1,2,3])						
     Y = Y.replace(["death", "live"], [1, 0])
-                                                        
+
+    clf.fit(X,Y)
+    
     # Get prediction
     prediction = clf.predict(X)[0]
     prectionProbability = clf.predict_proba(X)
