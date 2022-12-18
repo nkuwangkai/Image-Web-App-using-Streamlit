@@ -26,7 +26,7 @@ st.header("Machine learning app for in-hospital mortality prediction")
 
 Age = st.number_input("Age (years)",step=1,min_value=0)
 Temperature = st.number_input("Temperature (℃)",min_value=0)
-RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute)",step=1)
+RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute)",step=1,min_value=0)
 HeartRate = st.number_input("HeartRate (beats per minute)",step=1,min_value=0)
 SBP = st.number_input("SBP (mmHg)",step=1,min_value=0)
 AG = st.number_input("AG",step=1,min_value=0)
