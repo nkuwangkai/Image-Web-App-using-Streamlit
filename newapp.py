@@ -41,7 +41,7 @@ if st.button("Predict"):
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
-    X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']] = X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']].astype(short)
+    X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']] = X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']].astype(int)
     
     X[Race].astypes(category)
     X[Norepinephrine].astypes(category)
