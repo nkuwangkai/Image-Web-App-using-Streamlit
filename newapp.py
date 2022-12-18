@@ -44,7 +44,7 @@ if st.button("Predict"):
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
-    X[Age].astypes(int)
+    X[Age].astypes(long)
     X[RespiratoryRate].astypes(long)
     X[HeartRate].astypes(long)
     X[SBP].astypes(long)
