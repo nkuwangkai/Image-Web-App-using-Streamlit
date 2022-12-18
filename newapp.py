@@ -44,22 +44,10 @@ if st.button("Predict"):
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
-    X['Age'] = pd.to_int(X['Age'])
-    X['RespiratoryRate'] = pd.to_int(X['RespiratoryRate'])
-    X['HeartRate'] = pd.to_int(X['HeartRate'])
-    X['SBP'] = pd.to_int(X['SBP'])
-    X['AG'] = pd.to_int(X['AG'])
-    X['BUN'] = pd.to_int(X['BUN'])
-    X['MCV'] = pd.to_int(X['MCV'])
-    X[Race].astypes(category)
-    X[Norepinephrine].astypes(category)
-    X[Dopamine].astypes(category)
-    X[Phenylephrine].astypes(category)
-    X[Vasopressin].astypes(category)
-    X[Vent].astypes(category)
-    X[Intubated].astypes(category)
-    X[MC].astypes(category)
-    X[HepF].astypes(category)
+    dtypes = {k: str for k in columns[:2]}
+    dtypes.update({columns[0,2,3,4,5,6,8]: long})
+    dtypes.update({k: category for k in columns[3:]})
+    X = X.astype(dtypes)
     
     clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
