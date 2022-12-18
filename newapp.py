@@ -59,7 +59,8 @@ if st.button("Predict"):
                        Norepinephrine, Dopamine, Phenylephrine, Vasopressin, Vent, Intubated, MC, HepF]],
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
-                              "Vent", "Intubated", "MC", "HepF"])
+                              "Vent", "Intubated", "MC", "HepF"],
+                     enable _ categorial=TRUE)
     X = X.replace(["Yes", "No"], [1, 0])
     X = X.replace(["white", "black","others"], [1,2,3])						
     Y = Y.replace(["death", "live"], [1, 0])
