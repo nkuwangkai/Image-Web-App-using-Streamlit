@@ -4,9 +4,13 @@ import xgboost
 from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
-data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data4.csv",thousands=',')
-Xtrain = (data3.iloc[:,1:22]) 
-Ytrain = (data3.iloc[:,0])
+df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data4.csv",thousands=',')
+X = df[["label", "Race", "Norepinephrine","Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC","HepF"]]
+X = X.replace(["Yes", "No"], [1, 0])
+X = X.replace(["white", "black","others"], [1,2,3])						
+Y = df[["label"]]
+Y = Y.replace(["death", "live"], [1, 0])	
+
 
 clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
@@ -19,12 +23,12 @@ clf = XGBClassifier(objective='binary:logistic',
               n_estimators=92,
               subsample=0.6428299)
 
-clf.fit(Xtrain,Ytrain)
+clf.fit(X,Y)
 
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
 
-Age = st.number_input("Age (years)")
+Age = st.number_input("Age (years)") 
 Temperature = st.number_input("Temperature (℃)")
 RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute)")
 HeartRate = st.number_input("HeartRate (beats per minute)")
@@ -35,15 +39,19 @@ MCHC = st.number_input("MCHC (g/L)")
 MCV = st.number_input("MCV (fL)")
 RDW = st.number_input("RDW")
 WBC = st.number_input("WBC (×109/L)")
-Race = st.number_input("Race (white=1,black=2,others=3)")
-Norepinephrine = st.number_input("Norepinephrine (No=0,Yes=1)")
-Dopamine = st.number_input("Dopamine (No=0,Yes=1)")
-Phenylephrine = st.number_input("Phenylephrine (No=0,Yes=1)")
-Vasopressin = st.number_input("Vasopressin (No=0,Yes=1)")
-Vent = st.number_input("Vent (No=0,Yes=1)")
-Intubated = st.number_input("Intubated (No=0,Yes=1)")
-MC = st.number_input("MC (No=0,Yes=1)")
-HepF = st.number_input("HepF (No=0,Yes=1)")
+
+Race = st.selectbox("Race (white=1,black=2,others=3)", ("1", "2","3"))
+Norepinephrine = st.selectbox("Norepinephrine (No=0,Yes=1)", ("0","1"))
+Dopamine = st.selectbox("Dopamine (No=0,Yes=1)", ("0","1"))
+Phenylephrine = st.selectbox("Phenylephrine (No=0,Yes=1)", ("0","1"))
+Vasopressin = st.selectbox("Vasopressin (No=0,Yes=1)", ("0","1"))
+Vent = st.selectbox("Vent (No=0,Yes=1)", ("0","1"))
+Intubated = st.selectbox("Intubated (No=0,Yes=1)", ("0","1"))
+MC = st.selectbox("MC (No=0,Yes=1)", ("0","1"))
+HepF = st.selectbox("HepF (No=0,Yes=1)", ("0","1"))
+                                               
+                                                        
+Age	Temperature	RespiratoryRate	HeartRate	SBP
 
 # If button is pressed
 if st.button("Predict"):
@@ -54,11 +62,14 @@ if st.button("Predict"):
                      columns=["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV",
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
-
+    X = X.replace(["Yes", "No"], [1, 0])
+    X = X.replace(["white", "black","others"], [1,2,3])						
+    Y = Y.replace(["death", "live"], [1, 0])
+                                                        
     # Get prediction
     prediction = clf.predict(X)[0]
     prectionProbability = clf.predict_proba(X)
 
     # Output prediction
-    st.text(f"in-hospital survive/mortality probability [{prectionProbability}]")
-    st.text(f"in-hospital mortality prediction [{prediction}]")
+    st.text(f"in-hospital survive/mortality probability {prectionProbability}")
+    st.text(f"in-hospital mortality prediction {prediction}")
