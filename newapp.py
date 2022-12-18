@@ -35,9 +35,6 @@ if st.button("Predict"):
     
     df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
     # Store inputs into dataframe
-    X = df[["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV","RDW", "WBC", "Race",
-        "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC", "HepF"]]		
-    Y = df[["label"]]
     
     X = pd.DataFrame([[Age, Temperature, RespiratoryRate, HeartRate, SBP, AG, BUN, MCHC, MCV, RDW, WBC, Race,
                        Norepinephrine, Dopamine, Phenylephrine, Vasopressin, Vent, Intubated, MC, HepF]],
@@ -48,6 +45,8 @@ if st.button("Predict"):
     dtypes.update({columns[0,2,3,4,5,6,8]: long})
     dtypes.update({k: category for k in columns[3:]})
     X = X.astype(dtypes)
+    
+    Y = df[["label"]]
     
     clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
