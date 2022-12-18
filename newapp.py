@@ -4,8 +4,6 @@ import xgboost
 from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
-df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data4.csv",thousands=',')
-
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
 
@@ -35,20 +33,11 @@ HepF = st.selectbox("HepF (No=0,Yes=1)", ("0","1"))
 # If button is pressed
 if st.button("Predict"):
     
+    df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
     # Store inputs into dataframe
     X = df[["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV","RDW", "WBC", "Race",
         "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC", "HepF"]]		
     Y = df[["label"]]
-    clf = XGBClassifier(objective='binary:logistic',
-              booster='gbtree',
-              colsample_bytree=0.558759,
-              gamma=0.1477409,
-              learning_rate=0.08694605,
-              max_delta_step=8,
-              max_depth=3,
-              min_child_weight=37,
-              n_estimators=92,
-              subsample=0.6428299)
     
     X = pd.DataFrame([[Age, Temperature, RespiratoryRate, HeartRate, SBP, AG, BUN, MCHC, MCV, RDW, WBC, Race,
                        Norepinephrine, Dopamine, Phenylephrine, Vasopressin, Vent, Intubated, MC, HepF]],
@@ -72,10 +61,17 @@ if st.button("Predict"):
     X[MC].astypes(category)
     X[HepF].astypes(category)
     
-    X = X.replace(["Yes", "No"], [1, 0])
-    X = X.replace(["white", "black","others"], [1,2,3])						
-    Y = Y.replace(["death", "live"], [1, 0])
-
+    clf = XGBClassifier(objective='binary:logistic',
+              booster='gbtree',
+              colsample_bytree=0.558759,
+              gamma=0.1477409,
+              learning_rate=0.08694605,
+              max_delta_step=8,
+              max_depth=3,
+              min_child_weight=37,
+              n_estimators=92,
+              subsample=0.6428299)
+    
     clf.fit(X,Y)
     
     # Get prediction
@@ -83,5 +79,5 @@ if st.button("Predict"):
     prectionProbability = clf.predict_proba(X)
 
     # Output prediction
-    st.text(f"in-hospital survive/mortality probability {prectionProbability}")
-    st.text(f"in-hospital mortality prediction {prediction}")
+    st.text(f"survive/mortality probability {prectionProbability}")
+    st.text(f"mortality prediction {prediction}")
