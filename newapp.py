@@ -5,19 +5,19 @@ from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
 # Title
-st.header("")
-st.sidebar.header('Machine learning app for in-hospital mortality prediction')
-st.sidebar.slider(‘Age’, 18, 100, 50)
-st.sidebar.slider(‘Temperature’, 31, 40, 37)
-st.sidebar.slider(‘RespiratoryRate’, 10, 48, 20)
-st.sidebar.slider(‘HeartRate’, 29, 175, 100)
-st.sidebar.slider(‘SBP’, 40, 203, 160)
-st.sidebar.slider(‘AG’, 5, 49, 30)
-st.sidebar.slider(‘BUN’, 2, 270, 10)
-st.sidebar.slider(‘MCHC’, 24, 39, 20)
-st.sidebar.slider(‘MCV’, 24, 39, 20)
-st.sidebar.slider(‘RDW’, 10, 36, 20)
-st.sidebar.slider(‘WBC’, 0.1, 250, 10)
+st.header("Machine learning app for in-hospital mortality prediction")
+
+Age = st.number_input("Age (years)",step=1)
+Temperature = st.number_input("Temperature (℃)")
+RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute),step=1")
+HeartRate = st.number_input("HeartRate (beats per minute),step=1")
+SBP = st.number_input("SBP (mmHg),step=1")
+AG = st.number_input("AG",step=1)
+BUN = st.number_input("BUN (mg/dL)",step=1)
+MCHC = st.number_input("MCHC (g/L)")
+MCV = st.number_input("MCV (fL)",step=1)
+RDW = st.number_input("RDW")
+WBC = st.number_input("WBC (×109/L)")
 
 Race = st.selectbox("Race (white=1,black=2,others=3)", ("1", "2","3"))
 Norepinephrine = st.selectbox("Norepinephrine (No=0,Yes=1)", ("0","1"))
