@@ -5,12 +5,9 @@ from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
 df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data4.csv",thousands=',')
-X = df[["label", "Race", "Norepinephrine","Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC","HepF"]]
-X = X.replace(["Yes", "No"], [1, 0])
-X = X.replace(["white", "black","others"], [1,2,3])						
+X = df[["Age", "Temperature", "RespiratoryRate", "HeartRate", "SBP", "AG", "BUN", "MCHC", "MCV","RDW", "WBC", "Race",
+        "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin","Vent", "Intubated", "MC", "HepF"]]		
 Y = df[["label"]]
-Y = Y.replace(["death", "live"], [1, 0])	
-
 
 clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
@@ -61,6 +58,23 @@ if st.button("Predict"):
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"],
                      enable _ categorial=TRUE)
+    X[Age].astypes(int)
+    X[RespiratoryRate].astypes(int)
+    X[HeartRate].astypes(int)
+    X[SBP].astypes(int)
+    X[AG].astypes(int)
+    X[BUN].astypes(int)
+    X[MCV].astypes(int)
+    X[Race].astypes(category)
+    X[Norepinephrine].astypes(category)
+    X[Dopamine].astypes(category)
+    X[Phenylephrine].astypes(category)
+    X[Vasopressin].astypes(category)
+    X[Vent].astypes(category)
+    X[Intubated].astypes(category)
+    X[MC].astypes(category)
+    X[HepF].astypes(category)
+    
     X = X.replace(["Yes", "No"], [1, 0])
     X = X.replace(["white", "black","others"], [1,2,3])						
     Y = Y.replace(["death", "live"], [1, 0])
