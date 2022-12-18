@@ -49,9 +49,7 @@ Vent = st.selectbox("Vent (No=0,Yes=1)", ("0","1"))
 Intubated = st.selectbox("Intubated (No=0,Yes=1)", ("0","1"))
 MC = st.selectbox("MC (No=0,Yes=1)", ("0","1"))
 HepF = st.selectbox("HepF (No=0,Yes=1)", ("0","1"))
-                                               
-                                                        
-Age	Temperature	RespiratoryRate	HeartRate	SBP
+
 
 # If button is pressed
 if st.button("Predict"):
