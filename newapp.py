@@ -7,15 +7,15 @@ import streamlit as st
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")
 
-Age = st.number_input("Age (years)") 
+Age = st.int_input("Age (years)") 
 Temperature = st.number_input("Temperature (℃)")
-RespiratoryRate = st.number_input("RespiratoryRate (breaths per minute)")
-HeartRate = st.number_input("HeartRate (beats per minute)")
-SBP = st.number_input("SBP (mmHg)")
-AG = st.number_input("AG")
-BUN = st.number_input("BUN (mg/dL)")
+RespiratoryRate = st.int_input("RespiratoryRate (breaths per minute)")
+HeartRate = st.int_input("HeartRate (beats per minute)")
+SBP = st.int_input("SBP (mmHg)")
+AG = st.int_input("AG")
+BUN = st.int_input("BUN (mg/dL)")
 MCHC = st.number_input("MCHC (g/L)")
-MCV = st.number_input("MCV (fL)")
+MCV = st.int_input("MCV (fL)")
 RDW = st.number_input("RDW")
 WBC = st.number_input("WBC (×109/L)")
 
