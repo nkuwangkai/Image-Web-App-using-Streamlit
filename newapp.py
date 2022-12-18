@@ -5,7 +5,8 @@ from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
 # Title
-st.header("Machine learning app for in-hospital mortality prediction")
+st.header("")
+st.sidebar.header('Machine learning app for in-hospital mortality prediction')
 st.sidebar.slider(‘Age’, 18, 100, 50)
 st.sidebar.slider(‘Temperature’, 31, 40, 37)
 st.sidebar.slider(‘RespiratoryRate’, 10, 48, 20)
