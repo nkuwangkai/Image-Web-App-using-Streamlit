@@ -42,7 +42,7 @@ if st.button("Predict"):
                               "RDW", "WBC", "Race", "Norepinephrine", "Dopamine", "Phenylephrine", "Vasopressin",
                               "Vent", "Intubated", "MC", "HepF"])
     X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']] = X[['Age','RespiratoryRate','HeartRate','SBP','AG','BUN','MCV']].astype(int)
-    X[['Race','Norepinephrine','Dopamine','Phenylephrine','Vasopressin','Vent','MCIntubatedV','MC','HepF']] = X[['Race','Norepinephrine','Dopamine','Phenylephrine','Vasopressin','Vent','MCIntubatedV','MC','HepF']].astype(category)
+    X[['Race','Norepinephrine','Dopamine','Phenylephrine','Vasopressin','Vent','Intubated','MC','HepF']] = X[['Race','Norepinephrine','Dopamine','Phenylephrine','Vasopressin','Vent','Intubated','MC','HepF']].astype(category)
     
     Y = df[["label"]]
     
