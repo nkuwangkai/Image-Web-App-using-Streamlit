@@ -12,16 +12,16 @@ kmedoids = KMedoids(n_clusters=3,metric='euclidean',method='pam',random_state=12
 # Title
 st.header("Clustering for 2D-UCG")	
 
-LA = st.number_input("LA(mm)",step=1)
-LV = st.number_input("LV(mm)",step=1)
-RA = st.number_input("RA(mm)",step=1)
-RV = st.number_input("RV(mm)",step=1)
-IVS = st.number_input("IVS(mm)",step=1)
-LVPW = st.number_input("LVPW(mm)",step=1)
-AO = st.number_input("AO(mm)",step=1)
-RVTO = st.number_input("RVTO(mm)",step=1)
-MPA = st.number_input("AO(mm)",step=1)
-ESD = st.number_input("RVTO(mm)",step=1)
+LA = st.number_input("LA (mm)",step=1)
+LV = st.number_input("LV (mm)",step=1)
+RA = st.number_input("RA (mm)",step=1)
+RV = st.number_input("RV (mm)",step=1)
+IVS = st.number_input("IVS (mm)",step=1)
+LVPW = st.number_input("LVPW (mm)",step=1)
+AO = st.number_input("AO (mm)",step=1)
+RVTO = st.number_input("RVTO (mm)",step=1)
+MPA = st.number_input("MPA (mm)",step=1)
+ESD = st.number_input("ESD (mm)",step=1)
 
 # If button is pressed
 if st.button("Cluster"):
@@ -34,4 +34,4 @@ if st.button("Cluster"):
     label=kmedoids.predict(features_new)
 
     # Output prediction
-    st.text(f"Cluster {label}")
+    st.text(f"Cluster for the patient is {label}")
