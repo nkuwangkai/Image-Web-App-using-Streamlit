@@ -24,7 +24,8 @@ RVTO = st.number_input("RVTO(mm)",step=1)
 # If button is pressed
 if st.button("Cluster"):
     
-    data_new = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data2.csv",thousands=',')
+    data_new = pd.DataFrame([[LA, LV, RA, RV, IVS, LVPW, AO, RVTO]],
+                     columns=["LA", "LV", "RA", "RV", "IVS", "LVPW", "AO", "RVTO"])
     # Store inputs into dataframe
     features_new = data_new.drop(columns=[])
 
