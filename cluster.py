@@ -24,14 +24,11 @@ RVTO = st.number_input("RVTO(mm)",step=1)
 # If button is pressed
 if st.button("Cluster"):
     
-    df = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data2.csv",thousands=',')
+    data_new = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data2.csv",thousands=',')
     # Store inputs into dataframe
-    
-    X = pd.DataFrame([[LA, LV, RA, RV, SBP, IVS, LVPW, AO, RVTO]],
-                     columns=["LA", "LV", "RA", "RV", "SBP", "SBP", "IVS", "LVPW", "AO","RVTO"])
-    
-    
-    label=kmedoids.predict(X)
+    features_new = data_new.drop(columns=[])
+
+    label=kmedoids.predict(features_new)
 
     # Output prediction
     st.text(f"Cluster {label}")
