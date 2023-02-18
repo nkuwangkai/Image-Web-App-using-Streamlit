@@ -13,13 +13,13 @@ kmedoids = KMedoids(n_clusters=3,metric='euclidean',method='pam',random_state=12
 st.header("Clustering for 2D-UCG")
 
 LA = st.number_input("LA(mm)",step=1)
-LV = st.number_input("LV(mm),step=1")
+LV = st.number_input("LV(mm)",step=1)
 RA = st.number_input("RA(mm)",step=1)
 RV = st.number_input("RV(mm)",step=1)
 IVS = st.number_input("IVS(mm)",step=1)
 LVPW = st.number_input("LVPW(mm)",step=1)
 AO = st.number_input("AO(mm)",step=1)
-RVTO = st.number_input("RVTO(mm)")
+RVTO = st.number_input("RVTO(mm)",step=1)
 
 # If button is pressed
 if st.button("Cluster"):
