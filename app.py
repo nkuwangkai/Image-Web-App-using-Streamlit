@@ -57,4 +57,4 @@ if st.button("Predict"):
 
     # Output prediction
     st.text(f"in-hospital survive/mortality probability [{prectionProbability}]")
-    st.text(f"in-hospital mortality prediction [{prediction}] (0=survive, 1=mortality")
+    st.text(f"in-hospital mortality prediction [{prediction}] (0=survive, 1=mortality)")
