@@ -4,7 +4,8 @@ import xgboost
 from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
-data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',')
+data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',',encoding='GBK')
+)
 Xtrain = (data3.iloc[:,1:18]) 
 Ytrain = (data3.iloc[:,0])
 
@@ -24,7 +25,7 @@ clf.fit(Xtrain,Ytrain)
 # Title
 st.header("Machine learning app for in-hospital mortality prediction")								
 
-age = st.number_input("Age (years)",step=1,min_value=0)
+age = st.number_input("age (years)",step=1,min_value=0)
 diabetes = st.number_input("diabetes (No=0,Yes=1)",step=1,min_value=0,max_value=1)
 SevereLiverDisease = st.number_input("severe liver disease (No=0,Yes=1)",step=1,min_value=0,max_value=1)
 myocardial_infarct = st.number_input("myocardial infarction (No=0,Yes=1)",step=1,min_value=0,max_value=1)
