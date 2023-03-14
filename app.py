@@ -31,8 +31,8 @@ myocardial_infarct = st.number_input("myocardial infarction (No=0,Yes=1)",step=1
 SOFA = st.number_input("SOFA (scores)",step=1,min_value=0)
 APSⅢ = st.number_input("APS Ⅲ (scores)",step=1,min_value=0)
 RespiratoryRate = st.number_input("respiratory rate (breaths per minute)",step=1,min_value=0)
-mchc = st.number_input("mchc (%)",min_value=0.0)
-rdw = st.number_input("rdw (%)",min_value=0.0)
+mchc = st.number_input("MCHC (%)",min_value=0.0)
+rdw = st.number_input("RDW (%)",min_value=0.0)
 TotalBilirubin = st.number_input("total bilirubin (mg/dL)",min_value=0.0)
 dopamine = st.number_input("dopamine (No=0,Yes=1)",step=1,min_value=0,max_value=1)
 dobutamine = st.number_input("dobutamine (No=0,Yes=1)",step=1,min_value=0,max_value=1)
@@ -56,5 +56,5 @@ if st.button("Predict"):
     prectionProbability = clf.predict_proba(X)
 
     # Output prediction
-    st.text(f"in-hospital survive/mortality probability [{prectionProbability}]")
+    st.text(f"in-hospital survive/mortality probability {prectionProbability}")
     st.text(f"in-hospital mortality prediction [{prediction}] (0=survive, 1=mortality)")
