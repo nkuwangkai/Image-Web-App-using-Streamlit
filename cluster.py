@@ -33,10 +33,5 @@ if st.button("Cluster"):
 
     label=kmedoids.predict(features_new)
 
-if label=1:
-    labell=A
-else:
-    labell=B
-
     # Output prediction
-    st.text(f"The patient is clustered as cluster {labell}")
+    st.text(f"The patient is clustered as cluster {label} [1 = cluster A, 0 = cluster B]")
