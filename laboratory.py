@@ -60,4 +60,4 @@ df = user_input_features()
 
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
-st.write("In-hospital survive / mortality risk score is" + {prediction_proba}[0])
+st.text(f"In-hospital survive / mortality risk score is" + [{prediction_proba}[0]]")
