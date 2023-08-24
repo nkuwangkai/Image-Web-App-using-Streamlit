@@ -25,8 +25,6 @@ clf.fit(Xtrain,Ytrain)
 # Title
 st.header("Machine learning app for integration in laboratory test")								
 
-if st.button("Predict"):
-
   # 用户输入数据
   def user_input_features():
     wbc = st.sidebar.slider('wbc', 0.1, 1000.1)
@@ -62,4 +60,4 @@ df = user_input_features()
 
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
-st.text(f"In-hospital mortality risk score is {prediction_proba}[0]")
+st.write("In-hospital survive / mortality risk score is" + {prediction_proba}[0])
