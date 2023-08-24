@@ -27,24 +27,24 @@ st.header("Machine learning app for integration in laboratory test")
 
   # 用户输入数据
 def user_input_features():
-    wbc = st.sidebar.slider('wbc', 0.1, 1000.1)
+    wbc = st.sidebar.slider('wbc', 0.1, 100.1)
     hemoglobin = st.sidebar.slider('hemoglobin', 2.1, 30.1)
     rdw = st.sidebar.slider('rdw', 10.1, 40.1)
-    albumin = st.sidebar.slider('albumin', 0.1, 6.1)
+    albumin = st.sidebar.slider('albumin', 0.1, 10.1)
     total_bilirubin = st.sidebar.slider('total bilirubin', 0.1, 50.1)
     bun = st.sidebar.slider('bun',1.1, 250.1)
-    creatinine = st.sidebar.slider('creatinine', 0.1, 25.1)
+    creatinine = st.sidebar.slider('creatinine', 0.1, 30.1)
     glucose = st.sidebar.slider('glucose', 15.1, 500.1)
     sodium = st.sidebar.slider('sodium', 80.1, 180.1)
     chloride = st.sidebar.slider('chloride', 60.1, 150.1)
     neutrophils_lymphocytes_ratio = st.sidebar.slider('neutrophils - lymphocytes ratio', 0.1, 10000.1)
     hematocrit_rdw_ratio = st.sidebar.slider('hematocrit - rdw ratio', 0.1, 50.1)
-    rdw_albumin_ratio = st.sidebar.slider('rdw - albumin ratio', 0.1, 42.1)
+    rdw_albumin_ratio = st.sidebar.slider('rdw - albumin ratio', 0.1, 50.1)
     neutrophils_albumin_ratio = st.sidebar.slider('neutrophils - albumin ratio', 0.1, 60.1)
-    bun_creatinine_ratio = st.sidebar.slider('bun - creatinine ratio', 0.1, 190.1)
-    albumin_total_bilirubin_ratio = st.sidebar.slider('albumin - total bilirubin ratio', 0.1, 45.1)
-    alt_ast_ratio = st.sidebar.slider('alt - ast ratio', 0.1, 18.1)
-    bun_albumin_ratio = st.sidebar.slider('bun - albumin ratio', 0.1, 90.1)
+    bun_creatinine_ratio = st.sidebar.slider('bun - creatinine ratio', 0.1, 200.1)
+    albumin_total_bilirubin_ratio = st.sidebar.slider('albumin - total bilirubin ratio', 0.1, 50.1)
+    alt_ast_ratio = st.sidebar.slider('alt - ast ratio', 0.1, 20.1)
+    bun_albumin_ratio = st.sidebar.slider('bun - albumin ratio', 0.1, 100.1)
     data = {'wbc': wbc, 'hemoglobin': hemoglobin,
             'rdw': rdw,'albumin': albumin,
             'total_bilirubin': total_bilirubin,'bun': bun,
