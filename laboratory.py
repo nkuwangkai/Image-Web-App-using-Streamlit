@@ -4,25 +4,25 @@ import xgboost
 from xgboost.sklearn import XGBClassifier
 import streamlit as st
 
-data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/data3.csv",thousands=',',encoding='GBK')
-Xtrain = (data3.iloc[:,1:18]) 
+data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/laboratory.csv",thousands=',',encoding='GBK')
+Xtrain = (data3.iloc[:,1:19]) 
 Ytrain = (data3.iloc[:,0])
 
 clf = XGBClassifier(objective='binary:logistic',
               booster='gbtree',
-              colsample_bytree=0.6447264,
-              gamma=0.1934144,
-              learning_rate=0.1527683,
-              max_delta_step=10,
+              colsample_bytree=0.7823379,
+              gamma=0.07321518,
+              learning_rate=0.05336876,
+              max_delta_step=7,
               max_depth=3,
-              min_child_weight=10,
-              n_estimators=95,
-              subsample=0.6293208)
+              min_child_weight=50,
+              n_estimators=259,
+              subsample=0.797208)
 
 clf.fit(Xtrain,Ytrain)
 
 # Title
-st.header("Machine learning app for in-hospital mortality prediction")								
+st.header("Machine learning app for integration in laboratory test")								
 
 age = st.number_input("age (years)",step=1,min_value=0)
 diabetes = st.number_input("diabetes (No=0,Yes=1)",step=1,min_value=0,max_value=1)
