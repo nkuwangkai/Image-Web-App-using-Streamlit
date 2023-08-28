@@ -23,7 +23,7 @@ clf = XGBClassifier(objective='binary:logistic',
 clf.fit(Xtrain,Ytrain)
 
 # Title
-st.header("Machine learning app for integration in laboratory test")								
+st.header("Integration index from laboratory test")								
 
   # 用户输入数据
 def user_input_features():
@@ -60,4 +60,4 @@ df = user_input_features()
 
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
-st.text(f"In-hospital survive / mortality risk score is {prediction_proba}")
+st.text(f"In-hospital survive / mortality risk score is {prediction_proba[1}")
