@@ -5,6 +5,7 @@ import xgboost
 from sklearn import datasets
 from xgboost.sklearn import XGBClassifier
 import shap
+import matplotlib
 
 data3 = pd.read_csv("https://raw.githubusercontent.com/nkuwangkai/app-for-mortality-prediction/main/laboratory.csv",thousands=',',encoding='GBK')
 Xtrain = (data3.iloc[:,1:19]) 
@@ -28,7 +29,7 @@ shap_values = explainer.shap_values(Xtrain)
 # Title
 st.header("Integration index in laboratory test")								
 
-  # 用户输入数据
+# 用户输入数据
 def user_input_features():
     wbc = st.sidebar.slider('wbc', 0.1, 100.1)
     hemoglobin = st.sidebar.slider('hemoglobin', 2.1, 30.1)
@@ -64,9 +65,9 @@ df = user_input_features()
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
-image = shap.force_plot(explainer.expected_value, 
-                shap_values[0,:], 
+image = shap.force_plot(explainer.expected_value,
+                shap_values[0,:],
                 df.iloc[0,:])
 
 st.text(f"In-hospital survive / mortality integration index {prediction_proba}")
-st.image({image}, caption=None, width=None, use_column_width=False, clamp=False, channels="RGB", output_format="PNG")
+st.image({image}, caption=None, width=1024, use_column_width=True, clamp=(0,225), channels="RGB", output_format="PNG")
