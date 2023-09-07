@@ -26,7 +26,7 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(Xtrain)
 
 # Title
-st.header("Integration index from laboratory test")								
+st.header("Integration index in laboratory test")								
 
   # 用户输入数据
 def user_input_features():
@@ -69,4 +69,4 @@ image = shap.force_plot(explainer.expected_value,
                 df.iloc[0,:])
 
 st.text(f"In-hospital survive / mortality integration index {prediction_proba}")
-st.image({image}, caption=None, width=None, use_column_width=False, clamp=False, channels="RGB", output_format="auto")
+st.image({image}, caption=None, width=None, use_column_width=False, clamp=False, channels="RGB", output_format="PNG")
