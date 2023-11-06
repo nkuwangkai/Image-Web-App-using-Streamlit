@@ -26,7 +26,7 @@ RIPV_SID = st.number_input("RIPV_SID (mm)")
 if st.button("Cluster"):
     
     data_new = pd.DataFrame([[LSPV_APD, LSPV_SID, LIPV_APD, LIPV_SID, RSPV_APD, RSPV_SID, RIPV_APD, RIPV_SID]],
-                     columns=["LA", "LV", "RA", "RV", "IVS", "LVPW", "AO", "RVTO", "ESD", "MPA"])
+                     columns=["LSPV_APD", "LSPV_SID", "LIPV_APD", "LIPV_SID", "RSPV_APD", "RSPV_SID", "RIPV_APD", "RIPV_SID"])
     # Store inputs into dataframe
     features_new = data_new.drop(columns=[])
 
