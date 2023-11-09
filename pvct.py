@@ -10,8 +10,9 @@ features
 kmedoids = KMedoids(n_clusters=2,metric='euclidean',method='pam',random_state=123).fit(features)
 
 # Title
-st.title("Cluster for PVCT")
-st.header("Clustering for PVCT")
+st.title("""Cluster for PVCT""") #title
+st.header("""Clustering for PVCT""") #header
+# st.subheader("This is our Sub-header")
 							
 
 LSPV_APD = st.number_input("LSPV_APD (mm)")
