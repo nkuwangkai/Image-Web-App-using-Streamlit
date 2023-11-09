@@ -10,7 +10,7 @@ features
 kmedoids = KMedoids(n_clusters=2,metric='euclidean',method='pam',random_state=123).fit(features)
 
 # Title
-st.title("Clustering for PVCT")
+st.title("AF recurrence cluster form PVCT")
 # st.header("Clustering for PVCT")
 st.subheader("Yuehui Yin, Department of Cardiology, the Second Affiliated Hospital of Chongqing Medical University")
 # st.caption("Yuehui Yin, Department of Cardiology, the Second Affiliated Hospital of Chongqing Medical University")
