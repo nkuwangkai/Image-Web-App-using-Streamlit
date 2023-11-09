@@ -12,8 +12,8 @@ kmedoids = KMedoids(n_clusters=2,metric='euclidean',method='pam',random_state=12
 # Title
 st.title("Clustering for PVCT")
 # st.header("Clustering for PVCT")
-# st.subheader("This is our Sub-header")
-st.caption("Yuehui Yin, Department of Cardiology, the Second Affiliated Hospital of Chongqing Medical University")
+st.subheader("Yuehui Yin, Department of Cardiology, the Second Affiliated Hospital of Chongqing Medical University")
+# st.caption("Yuehui Yin, Department of Cardiology, the Second Affiliated Hospital of Chongqing Medical University")
 							
 
 LSPV_APD = st.number_input("LSPV_APD (mm)")
