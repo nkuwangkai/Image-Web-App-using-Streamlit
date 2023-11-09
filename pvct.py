@@ -10,8 +10,8 @@ features
 kmedoids = KMedoids(n_clusters=2,metric='euclidean',method='pam',random_state=123).fit(features)
 
 # Title
-# st.title("Cluster for PVCT") #title
-st.header("Clustering for PVCT") #header
+st.title("Clustering for PVCT") #title
+# st.header("Clustering for PVCT") #header
 # st.subheader("This is our Sub-header")
 st.caption("Yuehui Yin
             Department of Cardiology
